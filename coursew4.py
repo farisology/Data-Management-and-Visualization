@@ -50,3 +50,19 @@ developed = myData.loc[myData['country'].isin(devlopedCountries)]
 emerge = myData.loc[myData['country'].isin(emergeCountries)]
 
 poor = myData.loc[myData['country'].isin(poorCountries)]
+
+# Plots
+
+# Histogram
+myData.femaleemployrate.hist()
+myData.incomeperperson.hist()
+myData.alcconsumption.hist()
+myData.armedforcesrate.hist()
+myData.lifeexpectancy.hist()
+
+# Density Plots 
+se.kdeplot(myData.femaleemployrate, shade = True)
+se.kdeplot(myData.incomeperperson, shade = True)
+se.kdeplot(myData.alcconsumption, shade = True)
+se.kdeplot(myData.armedforcesrate, shade = True)
+se.kdeplot(myData.lifeexpectancy, shade = True)
