@@ -37,8 +37,7 @@ myData["alcconsumption"] = pd.to_numeric(myData["alcconsumption"],errors='coerce
 myData["armedforcesrate"] = pd.to_numeric(myData["armedforcesrate"],errors='coerce')
 myData["lifeexpectancy"] = pd.to_numeric(myData["lifeexpectancy"],errors='coerce')
 
-myData.lifeexpectancy.hist()
-
+myData = myData.fillna(0)
 # We want to look at developed/poor/emerging countries
 devlopedCountries = ['Canada', 'Australia', 'United Kingdom', 'United States', 'Singapore']
 
@@ -51,14 +50,28 @@ emerge = myData.loc[myData['country'].isin(emergeCountries)]
 
 poor = myData.loc[myData['country'].isin(poorCountries)]
 
-# Plots
+# Plots univariate
 
-# Histogram
+# Histogram Global variable
 myData.femaleemployrate.hist()
 myData.incomeperperson.hist()
 myData.alcconsumption.hist()
 myData.armedforcesrate.hist()
 myData.lifeexpectancy.hist()
+
+# Histogram Poor countriesvariable
+poor.femaleemployrate.hist()
+poor.incomeperperson.hist()
+poor.alcconsumption.hist()
+poor.armedforcesrate.hist()
+poor.lifeexpectancy.hist()
+
+# Histogram emerged countries variable
+emerge.femaleemployrate.hist()
+emerge.incomeperperson.hist()
+emerge.alcconsumption.hist()
+emerge.armedforcesrate.hist()
+emerge.lifeexpectancy.hist()
 
 # Density Plots 
 se.kdeplot(myData.femaleemployrate, shade = True)
@@ -66,3 +79,6 @@ se.kdeplot(myData.incomeperperson, shade = True)
 se.kdeplot(myData.alcconsumption, shade = True)
 se.kdeplot(myData.armedforcesrate, shade = True)
 se.kdeplot(myData.lifeexpectancy, shade = True)
+
+
+
